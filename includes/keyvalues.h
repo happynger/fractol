@@ -6,12 +6,17 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 13:06:06 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 17:55:46 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/10 11:45:20 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEYVALUES_H
 # define KEYVALUES_H
+
+/*
+**	NUM_** -> NUMPAD
+**	DIGIT_** -> DIGIT PAD
+*/
 
 # define ESC		53
 # define NUM_MULT	67
