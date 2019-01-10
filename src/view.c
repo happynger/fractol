@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:54:18 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 12:16:00 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 14:57:12 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void		set_view(t_mlx *mlx)
 	mlx->viewport.offx = 0;
 	mlx->viewport.offy = 0;
 	mlx->fractal->view_func(&mlx->viewport);
-	mlx->viewport.max = 32;
-	mlx->viewport.zoom = ZOOMVAR;
 	screen_to_view(&mlx->viewport);
+	mlx->viewport.max = 32;
+	mlx->viewport.zoom = 1.0f;
 }
 
 t_const		screen_to_const(int x, int y, t_view *v)
@@ -46,8 +46,8 @@ t_const		screen_to_const(int x, int y, t_view *v)
 	t_const		p;
 
 	p.r = (((double)x / WIDTH) * (v->xmax - v->xmin)) * v->zoom
-			+ v->ymin + v->offx;
+			+ v->xmin + v->offx;
 	p.i = (((double)y / HEIGHT) * (v->ymax - v->ymin)) * v->zoom
-			+ v->xmin + v->offy;
+			+ v->ymin + v->offy;
 	return (p);
 }

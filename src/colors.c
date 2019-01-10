@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:40:15 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 12:59:17 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 14:28:04 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ t_color		color_lerp(t_color c1, t_color c2, double p)
 
 t_color		linear_color(double i, int max, t_pallete *p)
 {
-	double	indx;
+	double	index;
 	double	offset;
 	int		c;
 
 	if (p->i)
-		indx = fmod(i, p->i - 1) / (p->i - 1);
+		index = fmod(i, p->i - 1) / (p->i - 1);
 	else
-		indx = i / max;
+		index = i / max;
 	c = p->counter - 1;
-	offset = fmod(indx, 1.0f / c) * c;
-	return (color_lerp((t_color)(p->color[(int)(indx * c) + 1]),
-		(t_color)(p->color[(int)(indx * c)]),
+	offset = fmod(index, 1.0f / c) * c;
+	return (color_lerp((t_color)(p->color[(int)(index * c) + 1]),
+		(t_color)(p->color[(int)(index * c)]),
 		(int)(offset + 1) - offset));
 }
 

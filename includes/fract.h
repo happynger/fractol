@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 18:26:29 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 13:01:48 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 18:32:57 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include <math.h>
 # include <stdint.h>
-# include "./minilibx_macos/mlx.h"
+# include "mlx.h"
 # include <stdbool.h>
 # include <pthread.h>
-# include "./libft/includes/libft.h"
+# include <complex.h>
+# include "libft.h"
 
 # define HEIGHT 720
-# define WIDTH 1080
-# define ZOOMVAR 1.0f
+# define WIDTH 1280
+# define ZOOMVAR 1.1f
 # define THREADS 8
+# define COLORS_MAX 
 
 typedef struct			s_rgba
 {
@@ -32,6 +34,12 @@ typedef struct			s_rgba
 	uint8_t				b;
 	uint8_t				a;
 }						t_rgba;
+
+typedef struct			s_complex
+{
+	float complex		r;
+	float complex		i;
+}						t_complex;
 
 typedef struct			s_image
 {
@@ -44,8 +52,8 @@ typedef struct			s_image
 
 typedef struct			s_const
 {
-	long				r;
-	long				i;
+	double				r;
+	double				i;
 }						t_const;
 
 typedef struct			s_view
@@ -107,7 +115,7 @@ typedef struct			s_render
 
 typedef struct			s_mouse
 {
-	bool				is_down;
+	char				is_down;
 	int					x;
 	int					y;
 	int					x_last;
@@ -120,6 +128,7 @@ struct					s_mlx
 	void				*win;
 	bool				is_smooth;
 	bool				is_mouselocked;
+	int					n;
 	t_image				*img;
 	t_fractal			*fractal;
 	t_render			renderer;
@@ -137,11 +146,22 @@ t_mlx					*init(t_fractal *f);
 void					set_view(t_mlx *mlx);
 t_const					screen_to_const(int x, int y, t_view *v);
 void					image_setpix(t_image *image, int x, int y, int color);
-int						get_color(t_pixel p, t_mlx *mlx);
+int						get_colors(t_pixel p, t_mlx *mlx);
 void					render(t_mlx *mlx);
 void					draw(t_mlx *mlx);
+void					zoom(int x, int y, t_view *v, double z);
+int						hook_press(int key, t_mlx *mlx);
+int						hook_mouse_move(int x, int y, t_mlx *mlx);
+int						hook_mouse_up(int button, int x, int y, t_mlx *mlx);
+int						hook_mouse_down(int button, int x, int y, t_mlx *mlx);
 
 t_pixel					julia_pixel(int x, int y, t_view *v, t_mlx *mlx);
 void					julia_view(t_view *v);
+t_pixel					mandelbrot_pixelf(int x, int y, t_view *v, t_mlx *mlx);
+void					mandelbrot_viewf(t_view *v);
+t_pixel					multijulia_pixel(int x, int y, t_view *v, t_mlx *mlx);
+void					multijulia_view(t_view *v);
+t_pixel					tricorn_pixelf(int x, int y, t_view *v, t_mlx *mlx);
+void					tricorn_viewf(t_view *v);
 
 #endif

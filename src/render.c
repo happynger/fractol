@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:28:43 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 13:00:54 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 14:33:57 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*render_per_thread(void *m)
 		x = 0;
 		while (x < WIDTH)
 		{
-			*(t->mlx->pixels + y * HEIGHT + x) =
+			*(t->mlx->pixels + y * WIDTH + x) =
 				t->mlx->fractal->pixel_func(x, y, &t->mlx->viewport, t->mlx);
 			x++;
 		}
@@ -54,7 +54,7 @@ void	render(t_mlx *mlx)
 		pthread_join(r->threads[i], NULL);
 		i++;
 	}
-
+	draw(mlx);
 }
 
 void	draw(t_mlx *mlx)
@@ -69,7 +69,7 @@ void	draw(t_mlx *mlx)
 		while (x < WIDTH)
 		{
 			image_setpix(mlx->img, x, y,
-					get_color(*(mlx->pixels + y * WIDTH + x), mlx));
+					get_colors(*(mlx->pixels + y * WIDTH + x), mlx));
 			x++;
 		}
 		y++;

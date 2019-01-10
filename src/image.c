@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:35:34 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 12:27:29 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 14:08:31 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_image		*new_image(t_mlx *mlx)
 	t_image		*img;
 
 	CHECK_NULL((img = ft_memalloc(sizeof(t_image))));
-	if ((img->img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT)))
+	if ((img->img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT)) == NULL)
 		return (destroy_image(mlx, img));
 	img->ptr = mlx_get_data_addr(img->img,
 								&img->bpp,

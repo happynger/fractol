@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:21:45 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/08 19:51:12 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 17:51:05 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_mlx	*destroy_mlx(t_mlx *mlx)
 		mlx_destroy_window(mlx->mlx, mlx->win);
 	if (mlx->img != NULL)
 		destroy_image(mlx->mlx, mlx->img);
+	ft_memdel((void **)&mlx);
+	return (NULL);
 }
 
 t_mlx	*init(t_fractal *f)
@@ -37,5 +39,6 @@ t_mlx	*init(t_fractal *f)
 	mlx->is_mouselocked = (f->mouse == 0) ? true : false;
 	mlx->palleter = get_palletes();
 	mlx->is_smooth = true;
+	mlx->n = 4;
 	return (mlx);
 }

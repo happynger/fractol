@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:12:32 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/08 19:48:44 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/09 18:07:55 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static t_fractal	*get_fractal_const(void)
 {
-	static t_fractal	array[5] = {
-		{"mandelbrot", NULL, NULL, 0},
-		{"julia", NULL, NULL, 1},
+	static t_fractal	array[12] = {
+		{"mandelbrot", mandelbrot_viewf, mandelbrot_pixelf, 0},
+		{"julia", julia_view, julia_pixel, 1},
+		{"multijulia", multijulia_view, multijulia_pixel, 1},
+		{"tricorn", tricorn_viewf, tricorn_pixelf, 0},
 		{NULL, NULL, NULL, 0}
 	};
 
