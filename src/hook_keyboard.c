@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:06:57 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 18:00:46 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:06:58 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		draw_hook(int key, t_mlx *mlx)
 	static int	cycle;
 
 	d = 0;
-
 	if (get_palletes()[cycle].counter == 0)
 		cycle = 0;
 	if (key == DIGIT_1)

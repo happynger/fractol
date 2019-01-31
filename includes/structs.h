@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 11:40:51 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/10 11:43:01 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/16 20:11:36 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <pthread.h>
 # include <stdint.h>
-# define THREADS 8
+# define THREADS 2
 
 typedef struct			s_rgba
 {

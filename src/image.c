@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:35:34 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 14:08:31 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:07:12 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_image		*destroy_image(t_mlx *mlx, t_image *image)
 void		image_setpix(t_image *image, int x, int y, int color)
 {
 	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-		return;
+		return ;
 	*(int *)(image->ptr + ((x + y * WIDTH) * image->bpp)) = color;
 }
 

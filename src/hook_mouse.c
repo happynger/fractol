@@ -6,7 +6,7 @@
 /*   By: otahirov <otahirov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 19:03:58 by otahirov          #+#    #+#             */
-/*   Updated: 2019/01/09 14:51:48 by otahirov         ###   ########.fr       */
+/*   Updated: 2019/01/31 15:06:17 by otahirov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		hook_mouse_move(int x, int y, t_mlx *mlx)
 {
 	double	w;
 	double	h;
-	
+
 	mlx->mouse.x_last = mlx->mouse.x;
 	mlx->mouse.y_last = mlx->mouse.y;
 	mlx->mouse.x = x;
